@@ -1,0 +1,36 @@
+﻿<head>
+        <title>E-Kitap Çok Yakında</title>
+        <style>
+          body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+          }
+          .container {
+            text-align: center;
+            position: relative;
+          }
+          .book-icon {
+            font-size: 100px;
+            color: #3f51b5;
+          }
+          .text {
+            font-size: 70px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: scale 1s infinite alternate;
+          }
+        </style>
+      </head>
+      <body>
+          @RenderBody()
+        <div class="container">
+          <span class="book-icon">&#128213;</span>
+          <h1 class="text">Çok Yakında</h1>
+        </div>
+      </body>

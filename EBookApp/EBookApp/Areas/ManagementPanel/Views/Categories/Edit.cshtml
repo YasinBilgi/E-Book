@@ -1,0 +1,46 @@
+﻿@model EBook.Entities.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+@using (Html.BeginForm("Edit", "Categories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class="text-danger"})
+        @Html.HiddenFor(model => model.Id)
+
+        <label class="control-label col-md-2">Favori Adı</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new {htmlAttibutes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Name, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new {@class = "control-label col-md-2"})
+
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Status, new SelectList(
+            new[]{
+            new{Value = "true", Text = "Aktif"},
+            new{Value = "false", Text = "Pasif"}
+            },
+            "Value",
+            "Text",
+            Model.Status), new{@class = "form-control"})
+            </div>
+            @Html.ValidationMessageFor(model => model.Status, "",
+        new {@class = "text-danger"})
+        </div>
+
+        <br />
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </div>
+}
+

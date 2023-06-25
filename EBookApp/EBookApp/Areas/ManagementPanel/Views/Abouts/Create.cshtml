@@ -1,0 +1,65 @@
+﻿@model EBook.Entities.Models.About
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ekle</h1>
+
+@using (Html.BeginForm("Create", "Abouts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class="text-danger"})
+
+        <label class="control-label col-md-2">Resim</label>
+        @*İmage*@
+        <div class="form-group">
+            @*  @Html.LabelFor(model => model.İmageUrl, htmlAttributes: new {@class = "control-label col-md-2"})*@
+
+            <div class="col-md-10">
+                <input type="file" accept="image/*" name="img" id="img" />
+            </div>
+        </div>
+
+        <br />
+
+        <label class="control-label col-md-2">Başlık</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new {htmlAttibutes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Title, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <label class="control-label col-md-2">Alt Başlık</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subtitle, new {htmlAttibutes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Subtitle, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <label class="control-label col-md-2">Açıklama</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new {htmlAttibutes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Description, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <label class="control-label col-md-2">Ekleme Tarihi</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreatedDate, new {htmlAttibutes = new {@class = "form-control", @type="datetime"}})
+                @Html.ValidationMessageFor(model => model.CreatedDate, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <br />
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+        <br />
+    </div>
+}
+

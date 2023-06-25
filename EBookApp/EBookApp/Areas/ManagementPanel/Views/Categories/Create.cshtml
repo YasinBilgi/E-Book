@@ -1,0 +1,37 @@
+﻿@model EBook.Entities.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ekle</h1>
+
+@using (Html.BeginForm("Create", "Categories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class="text-danger"})
+
+        <label class="control-label col-md-2">Favori Adı</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new {htmlAttibutes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Name, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <label class="control-label col-md-2">Ekleme Tarihi</label>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreatedDate, new {htmlAttibutes = new {@class = "form-control", @type="datetime"}})
+                @Html.ValidationMessageFor(model => model.CreatedDate, "", new {@Classs = "text-danger"})
+            </div>
+        </div>
+
+        <br />
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+        <br />
+    </div>
+}
+

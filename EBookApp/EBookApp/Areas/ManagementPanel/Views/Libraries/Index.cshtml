@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EBook.Entities.Models.Library>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kütüphane</h1>
+
+<p>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create", "Libraries")">Ekle</a>
+</p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Kütüphane Adı
+            </th>
+            <th>
+                Durum
+            </th>
+            <th>
+                Ekleme tarihi
+            </th>
+            <th>
+                Detay
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @item.LibraryName
+                </td>
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <p>Aktif</p>
+                    }
+                    else
+                    {
+                        <p>Pasif</p>
+                    }
+                </td>
+                <td>
+                    @item.CreatedDate.ToString("dd MMMM yyyy HH:mm")
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("Details", "Libraries", new{id = item.Id})">Detay</a>
+                </td>
+
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Libraries", new{id = item.Id})">Düzenle</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

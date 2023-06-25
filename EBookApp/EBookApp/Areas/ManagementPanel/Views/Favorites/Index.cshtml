@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EBook.Entities.Models.Favorite>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Favoriler</h1>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create", "Favorites")">Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Durum
+            </th>
+            <th>
+                Ekleme Tarihi
+            </th>
+            <th>
+                Detay
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <p>Aktif</p>
+                    }
+                    else
+                    {
+                        <p>Pasif</p>
+                    }
+                </td>
+                <td>
+                    @item.CreatedDate.ToString("dd MMMM yyyy HH:mm")
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("Details", "Favorites", new{id = item.Id})">Detay</a>
+                </td>
+
+                @*<td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Favorites", new{id = item.Id})">Düzenle</a>
+                </td>*@
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<EBook.Entities.Models.Message>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Mesajlar</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                İsim Soyisim
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Telefon
+            </th>
+            <th>
+                Konu
+            </th>
+            <th>
+                Açıklama
+            </th>
+            <th>
+                Durum
+            </th>
+            <th>
+                Ekleme Tarihi
+            </th>
+            <th>
+                Detay
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.FullName
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @item.Phone
+            </td>
+            <td>
+                @item.Subject
+            </td>
+            <td>
+                @item.Description
+            </td>
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <p>Aktif</p>
+                    }
+                    else
+                    {
+                        <p>Pasif</p>
+                    }
+                </td>
+                <td>
+                    @item.CreatedDate.ToString("dd MMMM yyyy HH:mm")
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("Details", "Messages", new{id = item.Id})">Detay</a>
+                </td>
+
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Messages", new{id = item.Id})">Düzenle</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
