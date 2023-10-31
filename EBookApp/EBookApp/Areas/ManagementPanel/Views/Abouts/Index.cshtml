@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EBook.Entities.Models.About>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Hakkında</h1>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create", "Abouts")">Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Başlık
+            </th>
+            <th>
+                Resim
+            </th>
+            <th>
+                Alt Başlık
+            </th>
+            <th>
+                Açıklama
+            </th>
+            <th>
+                Durumu
+            </th>
+            <th>
+                Ekleme Tarihi
+            </th>
+            <th>
+                Detay
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                    <img decoding="async" src="@item.İmageUrl" width="100px" asp-append-version="true" />
+            </td>
+            <td>
+                @item.Subtitle
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                    @if (item.Status == true)
+                    {
+                        <p>Aktif</p>
+                    }
+                    else
+                    {
+                        <p>Pasif</p>
+                    }
+            </td>
+            <td>
+                    @item.CreatedDate.ToString("dd MMMM yyyy HH:mm")
+            </td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("Details", "Abouts", new{id = item.Id})">Detay</a>
+                </td>
+
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Abouts", new{id = item.Id})">Düzenle</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

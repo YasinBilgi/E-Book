@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EBook.Entities.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>İletişim</h1>
+
+@*<p>
+    <a class="btn btn-primary" href="@Url.Action("Create", "Contacts")">Ekle</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Başlık
+            </th>
+            <th>
+                Alt Başlık
+            </th>
+            <th>
+                Adres
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Telefon
+            </th>
+            <th>
+                Durum
+            </th>
+            <th>
+                Ekleme tarihi
+            </th>
+            <th>
+                Detay
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Subtitle
+            </td>
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @item.Phone
+            </td>
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <p>Aktif</p>
+                    }
+                    else
+                    {
+                        <p>Pasif</p>
+                    }
+                </td>
+                <td>
+                    @item.CreatedDate.ToString("dd MMMM yyyy HH:mm")
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("Details", "Contacts", new{id = item.Id})">Detay</a>
+                </td>
+
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Contacts", new{id = item.Id})">Düzenle</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

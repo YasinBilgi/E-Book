@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EBook.Entities.Models.Payment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ödemeler</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dökümanlar
+            </th>
+            <th>
+                Ekleme Tarihi
+            </th>
+            <th>
+                Detay
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.DocummentUrl
+            </td>
+            <td>
+                @item.CreatedDate.ToString("dd MMMM yyyy HH:mm")
+            </td>
+            <td>
+                <a class="btn btn-danger" href="@Url.Action("Details", "Payments", new{id = item.Id})">Detay</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

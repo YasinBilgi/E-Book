@@ -1,0 +1,28 @@
+D:\E-Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.deps.json
+D:\E-Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.runtimeconfig.json
+D:\E-Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.dll
+D:\E-Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.pdb
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.csproj.AssemblyReference.cache
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.AssemblyInfoInputs.cache
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.AssemblyInfo.cs
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.csproj.CoreCompileInputs.cache
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.dll
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\refint\EBook.Entities.dll
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.pdb
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.genruntimeconfig.cache
+D:\E-Book\EBookApp\EBook.Entities\obj\Debug\net6.0\ref\EBook.Entities.dll
+D:\E Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.deps.json
+D:\E Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.runtimeconfig.json
+D:\E Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.dll
+D:\E Book\EBookApp\EBook.Entities\bin\Debug\net6.0\EBook.Entities.pdb
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.csproj.AssemblyReference.cache
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.AssemblyInfoInputs.cache
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.AssemblyInfo.cs
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.csproj.CoreCompileInputs.cache
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.dll
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\refint\EBook.Entities.dll
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.pdb
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\EBook.Entities.genruntimeconfig.cache
+D:\E Book\EBookApp\EBook.Entities\obj\Debug\net6.0\ref\EBook.Entities.dll
