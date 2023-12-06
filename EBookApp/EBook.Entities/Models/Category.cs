@@ -20,6 +20,6 @@ namespace EBook.Entities.Models
         public DateTime CreatedDate { get; set; }
 
 
-        public virtual List<BookCategory> BookCategories { get; set; }
+        public virtual ICollection<BookCategory> BookCategories { get; set; }
     }
 }

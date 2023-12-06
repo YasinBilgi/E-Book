@@ -22,6 +22,6 @@ namespace EBook.Entities.Models
         public virtual User? User { get; set; }
 
 
-        public virtual List<BookFavorite> BookFavorites { get; set; }
+        public virtual ICollection<BookFavorite> BookFavorites { get; set; }
     }
 }

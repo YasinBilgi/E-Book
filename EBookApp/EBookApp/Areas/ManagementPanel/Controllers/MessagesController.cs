@@ -53,11 +53,14 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Email,Phone,Subject,Description,Status,CreatedDate,UserId")] Message message)
+        public async Task<IActionResult> Create(Message message)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(message);
+                message.Status = true;
+                message.CreatedDate = DateTime.Now;
+
+                _context.Messages.Add(message);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -87,13 +90,9 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Email,Phone,Subject,Description,Status,CreatedDate,UserId")] Message message)
+        public async Task<IActionResult> Edit(Message message)
         {
-            if (id != message.Id)
-            {
-                return NotFound();
-            }
-
+           
             if (ModelState.IsValid)
             {
                 try
@@ -101,19 +100,12 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                     Message editMessage = await _context.Messages.FirstOrDefaultAsync(r => r.Id == message.Id);
 
                     editMessage.Status = message.Status;
-                    _context.Update(message);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MessageExists(message.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    
                 }
                 return RedirectToAction(nameof(Index));
             }

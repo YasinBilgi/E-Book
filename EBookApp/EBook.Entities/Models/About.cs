@@ -17,7 +17,7 @@ namespace EBook.Entities.Models
 
         public string? İmageUrl { get; set; }
 
-        public string? Subtitle { get; set; }
+        public string Subtitle { get; set; }
 
         public string Description { get; set; }
 

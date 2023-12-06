@@ -57,7 +57,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(library);
+                library.Status = true;
+                library.CreatedDate = DateTime.Now;
+
+                _context.Libraries.Add(library);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -97,7 +100,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
 
                     editLibrary.LibraryName = library.LibraryName;
                     editLibrary.Status = library.Status;
-                    _context.Update(library);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

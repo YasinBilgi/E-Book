@@ -70,7 +70,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                 author.Status = true;
                 author.CreatedDate = DateTime.Now;
 
-                _context.Add(author);
+                _context.Authors.Add(author);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -117,11 +117,9 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                     editAuthor.BirthDate = author.BirthDate;
                     editAuthor.DeathDate = author.DeathDate;
                     editAuthor.Biography = author.Biography;
-                    editAuthor.İmageUrl = author.İmageUrl;
                     editAuthor.Status = author.Status;
                     editAuthor.CreatedDate = author.CreatedDate;
 
-                    _context.Update(author);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

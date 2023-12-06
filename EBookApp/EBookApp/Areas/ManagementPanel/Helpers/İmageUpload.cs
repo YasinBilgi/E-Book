@@ -9,13 +9,13 @@
             string extension = Path.GetExtension(img.FileName);
             fileName = fileName + DateTime.Now.ToString("yyyMMddss") + extension;
 
-            string path = Path.Combine(wwwRootPath + "/image/", fileName);
+            string path = Path.Combine(wwwRootPath + "/images/", fileName);
 
             using (var fileStream = new FileStream(path, FileMode.Create))
             {
                 await img.CopyToAsync(fileStream);
             }
-            return "/image/" + fileName;
+            return "/images/" + fileName;
         }
 
         private static string FileNameControl(string filename)

@@ -56,7 +56,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(favorite);
+                favorite.Status = true;
+                favorite.CreatedDate = DateTime.Now;
+
+                _context.Favorites.Add(favorite);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -93,7 +96,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
             {
                 try
                 {
-                    _context.Update(favorite);
+                    Favorite editfavorite = await _context.Favorites.FindAsync(favorite.Id);
+
+                    editfavorite.Status = favorite.Status;
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

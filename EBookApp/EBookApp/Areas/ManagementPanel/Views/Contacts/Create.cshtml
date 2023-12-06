@@ -5,9 +5,9 @@
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Ekle</h1>
+<h1>İletişim Bilgileri Ekle</h1>
 
-@*@using (Html.BeginForm("Create", "Contacts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Contacts", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -18,14 +18,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new {htmlAttibutes = new {@class = "form-control"}})
                 @Html.ValidationMessageFor(model => model.Title, "", new {@Classs = "text-danger"})
-            </div>
-        </div>
-
-        <label class="control-label col-md-2">Alt Başlık</label>
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Subtitle, new {htmlAttibutes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Subtitle, "", new {@Classs = "text-danger"})
             </div>
         </div>
 
@@ -65,5 +57,5 @@
         <input type="submit" value="Kaydet" class="btn btn-primary" />
         <br />
     </div>
-}*@
+}
 

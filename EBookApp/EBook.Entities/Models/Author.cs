@@ -35,6 +35,6 @@ namespace EBook.Entities.Models
         public DateTime CreatedDate { get; set; }
 
 
-        public virtual List<BookAuthor> BookAuthors { get; set; }
+        public virtual ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

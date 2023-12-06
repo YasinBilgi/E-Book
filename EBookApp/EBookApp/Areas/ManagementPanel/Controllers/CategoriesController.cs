@@ -17,9 +17,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Categories
         public async Task<IActionResult> Index()
         {
-              return _context.Categories != null ? 
-                          View(await _context.Categories.ToListAsync()) :
-                          Problem("Entity set 'EBookDbContext.Categories'  is null.");
+            return View(await _context.Categories.ToListAsync());
         }
 
         // GET: ManagementPanel/Categories/Details/5
@@ -57,9 +55,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
             {
                 category.Status = true;
                 category.CreatedDate = DateTime.Now;
-                _context.Add(category);
+
+                _context.Categories.Add(category);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Categories");
+                return RedirectToAction(nameof(Index));
             }
             return View(category);
         }
@@ -95,8 +94,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
 
                     editCategory.Name = category.Name;
                     editCategory.Status = category.Status;
-                    editCategory.CreatedDate = category.CreatedDate;
-                    _context.Update(category);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

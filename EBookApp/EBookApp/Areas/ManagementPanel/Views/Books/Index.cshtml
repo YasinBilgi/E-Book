@@ -20,7 +20,7 @@
                 Yazar Adı
             </th>
             <th>
-                Açıklama
+                Kategori
             </th>
             <th>
                 Sayfa Sayısı
@@ -68,7 +68,7 @@
                 <img decoding="async" src="@item.İmageUrl" width="100px" asp-append-version="true" />
             </td>
             <td>
-                    @item.PublishDate.ToString("dd MMMM yyyy HH:mm")
+                    @item.PublishDate.Value.ToString("dd MMMM yyyy HH:mm")
             </td>
             <td>
                 @item.Isbn

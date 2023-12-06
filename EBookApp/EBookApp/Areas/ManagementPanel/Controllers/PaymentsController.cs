@@ -57,7 +57,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(payment);
+                payment.Status = true;
+                payment.CreatedDate = DateTime.Now;
+
+                _context.Payments.Add(payment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -97,7 +100,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                     Payment editPayment = await _context.Payments.FirstOrDefaultAsync(r => r.Id == payment.Id);
 
                     editPayment.Status = payment.Status;
-                    _context.Update(payment);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

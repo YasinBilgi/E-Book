@@ -67,7 +67,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                 {
                     about.İmageUrl = await İmageUpload.UploadImageAsync(_hostEnvironment, img);
                 }
-                _context.Add(about);
+                about.Status = true;
+                about.CreatedDate = DateTime.Now;
+
+                _context.Abouts.Add(about);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -109,11 +112,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                     }
 
                     editAbout.Title = about.Title;
-                    editAbout.İmageUrl = about.İmageUrl;
                     editAbout.Subtitle = about.Subtitle;
                     editAbout.Description = about.Description;
                     editAbout.Status = about.Status;
-                    _context.Update(about);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

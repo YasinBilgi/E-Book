@@ -7,9 +7,19 @@ namespace EBookApp.Controllers
     {
         EBookDbContext context = new EBookDbContext();
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(Contact contact)
+        {
+            if(User == null)
+            {
+              
+            }
+            return View(contact);
         }
     }
 }

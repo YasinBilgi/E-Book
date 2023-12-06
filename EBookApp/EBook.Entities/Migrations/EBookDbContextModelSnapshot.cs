@@ -45,6 +45,7 @@ namespace EBook.Entities.Migrations
                         .IsFixedLength();
 
                     b.Property<string>("Subtitle")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nchar(200)")
                         .IsFixedLength();
@@ -130,7 +131,6 @@ namespace EBook.Entities.Migrations
                         .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("Isbn")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LibraryId")
@@ -144,7 +144,7 @@ namespace EBook.Entities.Migrations
                     b.Property<int>("NumberPage")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PublishDate")
+                    b.Property<DateTime?>("PublishDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Status")

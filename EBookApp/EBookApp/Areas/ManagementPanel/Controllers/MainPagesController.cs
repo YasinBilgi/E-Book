@@ -55,7 +55,10 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(mainPage);
+                mainPage.Status = true;
+                mainPage.CreatedDate = DateTime.Now;
+
+                _context.MainPages.Add(mainPage);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -95,7 +98,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                     EditMainPage.Description = mainPage.Description;
                     EditMainPage.Status = mainPage.Status;
                     EditMainPage.CreatedDate = mainPage.CreatedDate;
-                    _context.Update(mainPage);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

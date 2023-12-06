@@ -58,7 +58,8 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
             {
                 contact.Status = true;
                 contact.CreatedDate = DateTime.Now;
-                _context.Add(contact);
+
+                _context.Contacts.Add(contact);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -101,7 +102,7 @@ namespace EBookApp.Areas.ManagementPanel.Controllers
                     editContact.Phone = contact.Phone;
                     editContact.Status = contact.Status;
 
-                    _context.Update(contact);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

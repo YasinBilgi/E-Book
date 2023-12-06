@@ -16,7 +16,7 @@
         <label class="control-label col-md-2">Resim</label>
         @*İmage*@
         <div class="form-group">
-            @*  @Html.LabelFor(model => model.İmageUrl, htmlAttributes: new {@class = "control-label col-md-2"})*@
+            @*@Html.LabelFor(model => model.İmageUrl, htmlAttributes: new {@class = "control-label col-md-2"})@**@
 
             <div class="col-md-10">
                 <input type="file" accept="image/*" name="img" id="img" />
@@ -41,11 +41,11 @@
             </div>
         </div>
 
-        <label class="control-label col-md-2">Açıklama</label>
+        <label class="control-label col-md-2">Kategori</label>
         <div class="form-group">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BookDetail.Description, new {htmlAttibutes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.BookDetail.Description, "", new {@Classs = "text-danger"})
+                @Html.EditorFor(model => model.Description, new {htmlAttibutes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Description, "", new {@Classs = "text-danger"})
             </div>
         </div>
 

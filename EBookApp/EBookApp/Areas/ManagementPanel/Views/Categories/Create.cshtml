@@ -5,7 +5,7 @@
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Ekle</h1>
+<h1>Kategori Ekle</h1>
 
 @using (Html.BeginForm("Create", "Categories", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -13,7 +13,7 @@
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new {@class="text-danger"})
 
-        <label class="control-label col-md-2">Favori Adı</label>
+        <label class="control-label col-md-2">Kategori Adı</label>
         <div class="form-group">
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new {htmlAttibutes = new {@class = "form-control"}})

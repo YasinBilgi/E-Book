@@ -12,6 +12,9 @@ namespace EBook.Entities.Models
         public Book()
         {
             ReadingPages = new HashSet<ReadingPage>();
+            BookAuthors = new HashSet<BookAuthor>();
+            BookCategories = new HashSet<BookCategory>();
+            BookFavorites = new HashSet<BookFavorite>();
         }
 
         [Key]
@@ -34,9 +37,9 @@ namespace EBook.Entities.Models
 
         public string? İmageUrl { get; set; }
 
-        public DateTime PublishDate { get; set; }
+        public DateTime? PublishDate { get; set; }
 
-        public string Isbn { get; set; }
+        public string? Isbn { get; set; }
 
         public bool Status { get; set; }
 
@@ -53,9 +56,8 @@ namespace EBook.Entities.Models
         public virtual BookDetail? BookDetail { get; set; }
 
         public virtual ICollection<ReadingPage> ReadingPages { get; set; }
-
-        public virtual List<BookAuthor> BookAuthors { get; set; }
-        public virtual List<BookCategory> BookCategories { get; set; }
-        public virtual List<BookFavorite> BookFavorites { get; set; }
+        public virtual ICollection<BookAuthor> BookAuthors { get; set; }
+        public virtual ICollection<BookCategory> BookCategories { get; set; }
+        public virtual ICollection<BookFavorite> BookFavorites { get; set; }
     }
 }
